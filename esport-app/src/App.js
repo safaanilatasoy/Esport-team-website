@@ -3,10 +3,19 @@ import AddUser from "./components/AddUser";
 import Users from "./components/Users"
 
 class App extends Component {
+ 
+  addUser(newUser) {
+    let updatedUsers = this.deleteUser.bind(this);
 
+    updatedUsers.push(newUser);
+
+    this.setState({
+      users: updatedUsers
+    });
+  }
   deleteUser(id) {
     let updatedUsers = this.state.users;
-
+    
     updatedUsers = updatedUsers.filter(user => user.id !== id);
     this.setState({
       users: updatedUsers
@@ -15,6 +24,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.deleteUser = this.deleteUser.bind(this);
+
     this.state = {
       users: [
         {
@@ -46,13 +56,15 @@ class App extends Component {
         },
       ]
     };
+    this.deleteUser = this.deleteUser.bind(this);
+    this.addUser = this.addUser.bind(this);
   }
   render() {
     return (
       <div className="container">
         <h4>Create Your Dream Esport Team</h4>
         <hr />
-        <AddUser/>
+        <AddUser addUser = {this.addUser}/>
         <hr />
         <Users deleteUser = {this.deleteUser} users = {this.state.users}/>
       

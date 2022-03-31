@@ -11,6 +11,36 @@ class AddUser extends Component {
         position: ""
 
     };
+    onNameChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+    onNicknameChange(e) {
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+    onGameChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+    onCountryChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+    onTeamChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+    onPositionChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
   render() {
       const {game, name, nickname, team, country, position} = this.state;
     return (
@@ -27,6 +57,7 @@ class AddUser extends Component {
                 placeholder="Enter a name"
                 className="form-control"
                 value = {name}
+                onChange = {this.onNameChange.bind(this)}
               />
             </div>
             <div className="form-group">
@@ -38,11 +69,12 @@ class AddUser extends Component {
                 placeholder="Enter a nickname"
                 className="form-control"
                 value = {nickname}
+                onChange = {this.onNicknameChange.bind(this)}
               />
             </div>
             <div className="form-group">
               <label htmlFor="game">Game</label>
-              <select value={nickname} className="form-select" aria-label="Default select example">
+              <select value={nickname} onChange = {this.onGameChange.bind(this)} className="form-select" aria-label="Default select example">
                 <option selected>Default</option>
                 <option value="Counter Strike Global Offensive">
                   Counter Strike Global Offensive
@@ -60,6 +92,7 @@ class AddUser extends Component {
                 placeholder="Enter team"
                 className="form-control"
                 value = {team}
+                onChange = {this.onTeamChange.bind(this)}
               />
             </div>
             <div className="form-group">
@@ -71,6 +104,7 @@ class AddUser extends Component {
                 placeholder="Enter Country"
                 className="form-control"
                 value = {country}
+                onChange = {this.onCountryChange.bind(this)}
               />
             </div>
             <div className="form-group">
@@ -82,6 +116,7 @@ class AddUser extends Component {
                 placeholder="Enter position"
                 className="form-control"
                 value ={position}
+                onChange = {this.onPositionChange.bind(this)}
               />
             </div>
         <br />
