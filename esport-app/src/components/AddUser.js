@@ -1,35 +1,48 @@
 import React, { Component } from "react";
 
 class AddUser extends Component {
+
+    state = {
+        game: "",
+        name: "",
+        nickname: "",
+        team: "",
+        country: "",
+        position: ""
+
+    };
   render() {
+      const {game, name, nickname, team, country, position} = this.state;
     return (
-      <div class="card">
-        <h4 class="card-header">Add New User</h4>
-        <div class="card-body">
+      <div className="card">
+        <h4 className="card-header">Add New Player</h4>
+        <div className="card-body">
           <form>
-            <div class="form-group">
+            <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
                 type="text"
                 name="name"
                 id="name"
                 placeholder="Enter a name"
-                class="form-control"
+                className="form-control"
+                value = {name}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label htmlFor="nickname">Nickname</label>
               <input
                 type="text"
                 name="nickname"
                 id="nickname"
                 placeholder="Enter a nickname"
-                class="form-control"
+                className="form-control"
+                value = {nickname}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label htmlFor="game">Game</label>
-              <select class="form-select" aria-label="Default select example">
+              <select value={nickname} className="form-select" aria-label="Default select example">
                 <option selected>Default</option>
                 <option value="Counter Strike Global Offensive">
                   Counter Strike Global Offensive
@@ -38,49 +51,42 @@ class AddUser extends Component {
                 <option value="Rainbow Six Siege">Rainbow Six Siege</option>
               </select>
             </div>
-            <div class="form-group">
-              <label htmlFor="country">Country</label>
-              <input
-                type="text"
-                name="country"
-                id="country"
-                placeholder="Enter country"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group">
+            <div className="form-group">
               <label htmlFor="team">Team</label>
               <input
                 type="text"
                 name="team"
                 id="team"
                 placeholder="Enter team"
-                class="form-control"
+                className="form-control"
+                value = {team}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label htmlFor="name">Country</label>
               <input
                 type="text"
-                name="email"
-                id="email"
-                placeholder="Enter email"
-                class="form-control"
+                name="Country"
+                id="Country"
+                placeholder="Enter Country"
+                className="form-control"
+                value = {country}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label htmlFor="position">Position</label>
               <input
                 type="text"
                 name="position"
                 id="position"
                 placeholder="Enter position"
-                class="form-control"
+                className="form-control"
+                value ={position}
               />
             </div>
         <br />
-            <button type="submit" class="d-grid col-4 mx-auto btn btn-danger btn-block">
-              Add New User
+            <button type="submit" className="d-grid col-4 mx-auto btn btn-danger btn-block">
+              Add New Player
             </button>
           </form>
         </div>

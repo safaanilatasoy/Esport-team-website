@@ -3,8 +3,18 @@ import AddUser from "./components/AddUser";
 import Users from "./components/Users"
 
 class App extends Component {
+
+  deleteUser(id) {
+    let updatedUsers = this.state.users;
+
+    updatedUsers = updatedUsers.filter(user => user.id !== id);
+    this.setState({
+      users: updatedUsers
+    })
+  }
   constructor(props) {
     super(props);
+    this.deleteUser = this.deleteUser.bind(this);
     this.state = {
       users: [
         {
@@ -13,8 +23,8 @@ class App extends Component {
           name : "Mathieu Herbaut",
           nickname: "Zywo",
           team: "Team Vitality",
-          Country: "France",
-          Position: "AWPer"
+          country: "France",
+          position: "AWPer"
         },
         {
           id : 2,
@@ -22,8 +32,8 @@ class App extends Component {
           name : "Oleksandr Kostyliev",
           nickname: "S1mple",
           team: "Natus Vincere",
-          Country: "Ukraine",
-          Position: "AWPer"
+          country: "Ukraine",
+          position: "AWPer"
         },
         {
           id : 3,
@@ -31,8 +41,8 @@ class App extends Component {
           name : "Nicolai Reedtz",
           nickname: "Dev1ce",
           team: "Ninjas in Pyjamas",
-          Country: "Sweden",
-          Position: "AWPer"
+          country: "Sweden",
+          position: "AWPer"
         },
       ]
     };
@@ -44,7 +54,7 @@ class App extends Component {
         <hr />
         <AddUser/>
         <hr />
-        <Users users = {this.state.users}/>
+        <Users deleteUser = {this.deleteUser} users = {this.state.users}/>
       
       </div>
     );

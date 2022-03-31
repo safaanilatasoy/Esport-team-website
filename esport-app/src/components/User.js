@@ -1,17 +1,26 @@
 import React, { Component } from "react";
 
 class User extends Component {
+    
+    onDeleteClick(id,e){
+        const {deleteUser} = this.props;
+        
+
+        deleteUser(id);
+
+    }
   render() {
+    const {id, game, name, nickname, team, country, position} = this.props;
     return (
       <tr>
-        <th scope="row">1</th>
-        <td>CS:GO</td>
-        <td>Alexander</td>
-        <td>s1mple</td>
-        <td>NaVi</td>
-        <td>Ukraine</td>
-        <td>AWPer</td>
-        <td><button class="btn btn-danger">Delete</button></td>
+        <th scope="row">{id}</th>
+        <td>{game}</td>
+        <td>{name}</td>
+        <td>{nickname}</td>
+        <td>{team}</td>
+        <td>{country}</td>
+        <td>{position}</td>
+        <td><button onClick={this.onDeleteClick.bind(this,id)} className="btn btn-danger">Delete</button></td>
       </tr>
     );
   }
